@@ -1,0 +1,36 @@
+<section>
+        <article>
+            <header>
+                <h2>{{titulo}}</h2>
+            </header>
+
+            <p>{{conteudo}}</p>
+
+            <br />
+            <hr>
+            <br />
+
+            <form method="POST" action="http://localhost/postagens/?pagina=post&metodo=addComment">
+                <input type="hidden" name="id" value="{{id}}"> 
+                
+                <span>Nome: </span><br /><br />
+                <input type="text" name="nome"><br /><br />
+                
+                <span>Mensagem: </span><br /><br />
+                <textarea name="msg"></textarea><br /><br />
+
+                <input type="submit" value="Enviar">
+            </form>
+            <br /><br />
+
+            {% if comentarios == false %}
+                <p>Nenhum comentário encontrado para essa postagem!</p>
+            {% else %}
+                {% for coment in comentarios %}
+                    <h3>{{coment.nome}}</h3>
+                    <p>{{coment.mensagem}}</p>
+                    <br />
+                {% endfor %}
+            {% endif %}
+        </article>
+</section>

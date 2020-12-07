@@ -1,0 +1,13 @@
+<h1>Editar Publicação</h1>
+
+<form method="post" action="?pagina=admin&metodo=update&id={{id}}">
+    <input type="hidden" name="id" value="{{id}}" /><br /><br/>
+
+    <span>Título</span><br >
+    <input type="text" name="titulo" value="{{titulo}}" /><br /><br >
+
+    <span>Conteúdo</span><br >
+    <textarea cols="50" rows="10" name="conteudo">{{conteudo}}</textarea><br /><br />
+
+    <input type="submit" name="acao" value="editar" />
+</form>

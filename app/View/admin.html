@@ -1,0 +1,34 @@
+<script>
+    function confirmaDeletar(id)
+    {
+        if(confirm("Deseja realmente deletar esta publicação?"))
+        {
+            location.href="http://localhost/postagens/?pagina=admin&metodo=deletar&id="+id;
+        }
+    }
+</script>
+
+<h1>Gerenciador de Conteúdo</h1>
+
+<a href="http://localhost/postagens/?pagina=admin&metodo=create">Criar publicação</a> <br />
+<hr>
+
+<br />
+
+<table border="1">
+    <tr>
+        <th><b>ID</b></th>
+        <th><b>Título</b></th>
+        <th><b>Alteração</b></th>
+        <th><b>Deleção</b></th>
+    </tr>
+
+    {% for post in postagens %}   
+    <tr>
+        <th>{{post.id}}</th>
+        <th>{{post.titulo}}</th>
+        <th><a href="http://localhost/postagens/?pagina=admin&metodo=editar&id={{post.id}}">[e]</a></th>
+        <th><a href="#" onClick="return confirmaDeletar('{{post.id}}')" > [x] </a></th>
+    </tr>
+    {% endfor %}
+</table>
